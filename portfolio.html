@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+  document.documentElement.classList.add('js');
+  // Failsafe: if main.js never loads/runs for any reason (blocked,
+  // 404, offline, etc.), don't leave the page permanently blank.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var els = document.querySelectorAll('.reveal:not(.is-visible)');
+      for (var i = 0; i < els.length; i++) els[i].classList.add('is-visible');
+    }, 2500);
+  });
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio — Cruxatec</title>
+<meta name="description" content="A real look at Cruxatec's work, from concept to completed build, across residential, commercial, hospitality, institutional, religious, and specialised projects.">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="theme-cruxatec">
+
+<!-- ============ MINIMAL NAV ============ -->
+<header class="nav about-nav">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/img/logo.jpg" alt="Cruxatec"> Cruxatec</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://calendly.com/cruxndidi/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PORTFOLIO INTRO ============ -->
+<section class="section section--light about-lead">
+  <div class="container">
+    <div class="statement reveal">
+      <p class="eyebrow is-center">Portfolio</p>
+      <h1>Our Work Speaks For Us</h1>
+      <p class="lede">You should never have to hire an architect on trust alone. Every project here is a real look at how we think, how we solve problems, and how we bring a client's vision to life, from concept to completed build. Take a look through our work and see for yourself what working with Cruxatec looks like.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECT GALLERY (placeholders — replace with real project images/videos) ============ -->
+<section class="section section--light section--compact">
+  <div class="container">
+    <div class="portfolio-grid reveal">
+      <div class="portfolio-item"><img src="assets/img/hero-10-duplex-dusk.jpg" alt="Modern duplex residence, finished design render at dusk" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/hero-12-bungalow-dusk.jpg" alt="Bungalow residence, finished design render at dusk" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-brick-duplex-render.jpg" alt="Brick and render duplex residence, finished design render" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-bungalow-finished-white.jpg" alt="Completed white bungalow building on site" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-faceted-building-angle.jpg" alt="Faceted metal-clad commercial building under construction" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-container-structure-colorful.jpg" alt="Shipping container structure on site" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-container-crane-lift.jpg" alt="Crane lifting a shipping container into place on site" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-container-site-team.jpg" alt="Cruxatec team on site at the container structure build" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-duplex-progress-scaffold.jpg" alt="Duplex residence under construction with bamboo scaffolding" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-scaffold-progress-laundry.jpg" alt="Residence under construction with bamboo scaffolding" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-scaffold-evening.jpg" alt="Building under construction with bamboo scaffolding at dusk" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-duplex-scaffold-stucco.jpg" alt="Duplex residence under construction, stucco stage with scaffolding" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-foundation-walls-formwork.jpg" alt="Blockwork foundation walls with timber formwork on site" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-foundation-detail.jpg" alt="Close-up of blockwork foundation detail on site" loading="lazy"></div>
+      <div class="portfolio-item"><img src="assets/img/portfolio/portfolio-blockwork-walls.jpg" alt="Blockwork walls under construction" loading="lazy"></div>
+      <div class="portfolio-item"><video src="assets/video/portfolio/portfolio-clip-01.mp4" controls muted playsinline preload="metadata" poster="assets/img/portfolio/portfolio-clip-01-poster.jpg" aria-label="Project site video"></video></div>
+      <div class="portfolio-item"><video src="assets/video/portfolio/portfolio-clip-02.mp4" controls muted playsinline preload="metadata" poster="assets/img/portfolio/portfolio-clip-02-poster.jpg" aria-label="Project site video"></video></div>
+      <div class="portfolio-item"><video src="assets/video/portfolio/portfolio-clip-03.mp4" controls muted playsinline preload="metadata" poster="assets/img/portfolio/portfolio-clip-03-poster.jpg" aria-label="Project site video"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section section--dark section--compact">
+  <div class="container">
+    <div class="cta-panel portfolio-cta reveal">
+      <p class="eyebrow is-center">Get In Touch</p>
+      <h2>Have A Project In Mind?</h2>
+      <p class="lede">Let's talk about your next project.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="https://calendly.com/cruxndidi/30min" target="_blank" rel="noopener" class="btn btn-primary">Book A Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-top">
+      <a href="index.html" class="brand"><img src="assets/img/logo.jpg" alt="Cruxatec"> Cruxatec</a>
+      <ul class="footer-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/1EhqqeWMND/" target="_blank" rel="noopener" aria-label="Cruxatec on Facebook">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M14 9V6.5C14 5.67 14.67 5 15.5 5H17V2H14.5C12.01 2 10 4.01 10 6.5V9H7V12H10V22H14V12H17L18 9H14Z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/crux-nwachukwu" target="_blank" rel="noopener" aria-label="Cruxatec on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6C1.11 6 0 4.88 0 3.5C0 2.12 1.11 1 2.49 1C3.87 1 4.98 2.12 4.98 3.5ZM0.24 8H4.74V23H0.24V8ZM8.24 8H12.54V10.06H12.6C13.2 8.92 14.66 7.72 16.84 7.72C21.4 7.72 22.24 10.7 22.24 14.58V23H17.74V15.46C17.74 13.76 17.71 11.58 15.38 11.58C13.02 11.58 12.66 13.42 12.66 15.34V23H8.24V8Z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.instagram.com/cruxnwachukwu" target="_blank" rel="noopener" aria-label="Cruxatec on Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-contact">
+        <span><strong>WhatsApp:</strong> <a href="https://wa.me/2348108315976">0810 831 5976</a> · <a href="https://wa.me/2347018493355">0701 849 3355</a> · <a href="https://wa.me/2347044934680">0704 493 4680</a></span>
+        <span><strong>Email:</strong> <a href="mailto:cruxndidi@gmail.com">cruxndidi@gmail.com</a> · <a href="mailto:tobechukwunwachukwu32@gmail.com">tobechukwunwachukwu32@gmail.com</a></span>
+        <span><strong>Studio:</strong> 44 Owerri Road, Asata, Enugu.</span>
+      </div>
+      <span class="copyright">&copy; 2026 Cruxatec. We design. We consult. We build. You thrive.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+  document.documentElement.classList.add('js');
+  // Failsafe: if main.js never loads/runs for any reason (blocked,
+  // 404, offline, etc.), don't leave the page permanently blank.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var els = document.querySelectorAll('.reveal:not(.is-visible)');
+      for (var i = 0; i < els.length; i++) els[i].classList.add('is-visible');
+    }, 2500);
+  });
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Cruxatec</title>
+<meta name="description" content="Cruxatec helps you turn your vision into a space you can be proud of — architectural design, consultancy, and construction guidance from concept through completion.">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="theme-cruxatec">
+
+<!-- ============ MINIMAL NAV ============ -->
+<header class="nav about-nav">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/img/logo.jpg" alt="Cruxatec"> Cruxatec</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://calendly.com/cruxndidi/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT INTRO ============ -->
+<section class="section section--light about-lead">
+  <div class="container">
+    <div class="about-intro-grid">
+      <div class="reveal">
+        <p class="eyebrow">About Cruxatec</p>
+        <h1>Bring Your Dream Space To Life</h1>
+        <p class="lede">At Cruxatec, we help you turn your vision into a space you can be proud of—whether you're planning a home, hospital, commercial building, hospitality project, renovation, or remodeling.</p>
+        <p class="lede">From architectural design and space planning to construction documentation, 3D visualization, site supervision, and construction consultancy, we handle the details that bring your project together.</p>
+        <p class="lede">So you can have confidence in what you're building—without the stress of poor planning, wasted space, costly mistakes, or a finished project that falls short of your expectations.</p>
+        <div class="btn-row" style="justify-content:flex-start;">
+          <a href="https://calendly.com/cruxndidi/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+          <a href="portfolio.html" class="btn btn-outline" style="border-color:var(--paper-line); color:var(--text-dark);">See Our Portfolio</a>
+        </div>
+      </div>
+
+      <div class="ceo-portrait-wrap reveal">
+        <img src="assets/img/ceo-portrait-onsite.jpg" alt="Tobechukwu Nwachukwu, CEO of Cruxatec, on site at a construction project wearing a #CRUXATECH hard hat">
+        <p class="ceo-caption"><strong>Tobechukwu Nwachukwu</strong><span>CEO @ Cruxatec</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FROM THE CEO ============ -->
+<section class="section section--dark section--compact">
+  <div class="container">
+    <div class="statement reveal">
+      <p class="eyebrow is-center">From The CEO</p>
+      <h2>&ldquo;I'm An Architect Who Believes Every Space Has A Story.&rdquo;</h2>
+      <p class="lede">My journey in architecture began in 2017, working across residential, commercial, hospitality, institutional, religious, and specialised projects. I've been trusted with projects where getting things right matters, and that has taught me to listen carefully, communicate clearly, and understand what clients actually need from the people they trust with their projects.</p>
+      <p class="lede">Building comes with uncertainty and plenty to worry about. That's why I believe in keeping clients informed, being dependable, paying attention to detail, and making the process as clear and straightforward as possible. Because when someone trusts you with their project, they deserve more than good work. They deserve someone they can trust throughout the journey.</p>
+      <p class="ceo-signoff">Tobechukwu Nwachukwu &middot; CEO, Cruxatec</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-top">
+      <a href="index.html" class="brand"><img src="assets/img/logo.jpg" alt="Cruxatec"> Cruxatec</a>
+      <ul class="footer-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/1EhqqeWMND/" target="_blank" rel="noopener" aria-label="Cruxatec on Facebook">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M14 9V6.5C14 5.67 14.67 5 15.5 5H17V2H14.5C12.01 2 10 4.01 10 6.5V9H7V12H10V22H14V12H17L18 9H14Z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/crux-nwachukwu" target="_blank" rel="noopener" aria-label="Cruxatec on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6C1.11 6 0 4.88 0 3.5C0 2.12 1.11 1 2.49 1C3.87 1 4.98 2.12 4.98 3.5ZM0.24 8H4.74V23H0.24V8ZM8.24 8H12.54V10.06H12.6C13.2 8.92 14.66 7.72 16.84 7.72C21.4 7.72 22.24 10.7 22.24 14.58V23H17.74V15.46C17.74 13.76 17.71 11.58 15.38 11.58C13.02 11.58 12.66 13.42 12.66 15.34V23H8.24V8Z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.instagram.com/cruxnwachukwu" target="_blank" rel="noopener" aria-label="Cruxatec on Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-contact">
+        <span><strong>WhatsApp:</strong> <a href="https://wa.me/2348108315976">0810 831 5976</a> · <a href="https://wa.me/2347018493355">0701 849 3355</a> · <a href="https://wa.me/2347044934680">0704 493 4680</a></span>
+        <span><strong>Email:</strong> <a href="mailto:cruxndidi@gmail.com">cruxndidi@gmail.com</a> · <a href="mailto:tobechukwunwachukwu32@gmail.com">tobechukwunwachukwu32@gmail.com</a></span>
+        <span><strong>Studio:</strong> 44 Owerri Road, Asata, Enugu.</span>
+      </div>
+      <span class="copyright">&copy; 2026 Cruxatec. We design. We consult. We build. You thrive.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
