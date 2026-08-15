@@ -1,0 +1,988 @@
+/* =========================================================
+   CRUXATEC — Design tokens
+   Luxury architectural palette: deep navy, crisp white,
+   matte black, brushed gold accents.
+   ========================================================= */
+:root {
+  /* Navy (dark sections) */
+  --ink: #0B1B2E;
+  --ink-2: #10233A;
+  --ink-3: #172E48;
+  --ink-line: rgba(201, 178, 138, 0.18);
+
+  /* Crisp white / paper (light sections) */
+  --paper: #FFFFFF;
+  --paper-2: #F5F3EE;
+  --paper-line: #E2DED4;
+
+  /* Matte black */
+  --black: #111111;
+
+  /* Text */
+  --text-dark: #12202F;
+  --text-dark-soft: #55606B;
+  --text-light: #F5F3EE;
+  --text-light-soft: #B7C0C9;
+
+  /* Brushed gold accent (replaces bright blue) */
+  --gold: #B9945C;
+  --gold-bright: #D4B172;
+  --blue: var(--gold);
+  --blue-bright: var(--gold-bright);
+  --blue-deep: #8A6E42;
+  --silver: #C9B58C;
+
+  /* Type — elegant serif display, clean sans body */
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Inter", "Segoe UI", sans-serif;
+
+  --container: 1180px;
+  --edge: clamp(20px, 5vw, 64px);
+  --radius: 2px;
+
+  /* Spacing scale — used for consistent, tighter vertical rhythm */
+  --sp-1: 8px;
+  --sp-2: 12px;
+  --sp-3: 18px;
+  --sp-4: 24px;
+  --sp-5: 32px;
+  --sp-6: 44px;
+  --sp-7: 64px;
+}
+
+* { box-sizing: border-box; }
+
+/* =========================================================
+   HOMEPAGE ONLY — "Modern SaaS" theme
+   Navy is reserved for the logo + h1/h2 text, and is also the
+   single interactive accent (buttons, links, focus rings).
+   Every surface runs on white or light-lavender. Scoped to
+   body.theme-cruxatec so the About page (separate navy/gold
+   theme) is untouched.
+   ========================================================= */
+body.theme-cruxatec {
+  --color-logo-brand: #144D87;
+  --color-bg-main: #FFFFFF;
+  --color-bg-secondary: #F5F3FF;
+  --color-accent-action: #123A63;
+  --color-accent-hover: #0B2740;
+  --color-text-body: #1E293B;
+
+  background: var(--color-bg-main);
+  color: var(--color-text-body);
+}
+
+/* All sections become light surfaces: white, or the lavender
+   "secondary" tint standing in for the old dark/dim sections. */
+body.theme-cruxatec .section--light,
+body.theme-cruxatec .section--dark,
+body.theme-cruxatec .section--dim {
+  background: var(--color-bg-main);
+  color: var(--color-text-body);
+}
+body.theme-cruxatec .section--dark,
+body.theme-cruxatec .section--dim {
+  background: var(--color-bg-secondary);
+}
+body.theme-cruxatec .section--light::before { display: none; }
+body.theme-cruxatec .text-soft,
+body.theme-cruxatec .lede,
+body.theme-cruxatec .section--dark .lede,
+body.theme-cruxatec .section--dim .lede {
+  color: var(--color-text-body);
+  opacity: 0.75;
+}
+
+/* Headings — navy, reserved for h1/h2 only */
+body.theme-cruxatec h1,
+body.theme-cruxatec h2 {
+  color: var(--color-logo-brand);
+}
+body.theme-cruxatec .hero h1 .accent {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  color: var(--color-logo-brand);
+}
+body.theme-cruxatec h3 { color: var(--color-text-body); }
+
+/* Eyebrow labels + links + focus rings = navy accent */
+body.theme-cruxatec .eyebrow { color: var(--color-accent-action); text-shadow: none; }
+body.theme-cruxatec a:hover { color: var(--color-accent-action); }
+body.theme-cruxatec :focus-visible { outline-color: var(--color-accent-action); }
+
+/* Buttons */
+body.theme-cruxatec .btn-primary {
+  background: var(--color-accent-action);
+  color: #fff;
+}
+body.theme-cruxatec .btn-primary:hover { background: var(--color-accent-hover); filter: none; }
+body.theme-cruxatec .btn-outline {
+  border-color: var(--color-accent-action);
+  color: var(--color-accent-action);
+}
+body.theme-cruxatec .btn-outline:hover {
+  background: var(--color-accent-action);
+  color: #fff;
+  border-color: var(--color-accent-action);
+}
+
+/* Nav — always a clean white bar so the navy logo anchors it */
+body.theme-cruxatec .nav,
+body.theme-cruxatec .nav.is-scrolled {
+  background: var(--color-bg-main);
+  box-shadow: 0 1px 0 rgba(30,41,59,0.08);
+}
+body.theme-cruxatec .brand { color: var(--color-logo-brand); }
+body.theme-cruxatec .nav-links { color: var(--color-text-body); }
+body.theme-cruxatec .nav-links a:hover { color: var(--color-accent-action); }
+body.theme-cruxatec .nav-toggle { color: var(--color-text-body); }
+@media (max-width: 880px) {
+  body.theme-cruxatec .nav-links {
+    background: var(--color-bg-main);
+    box-shadow: 0 12px 30px rgba(30,41,59,0.14);
+  }
+}
+
+/* Hero — text sits directly on the video/image, no card behind
+   it. A soft dark gradient overlay keeps the white headline and
+   lede legible against whatever is playing behind them. */
+body.theme-cruxatec .hero {
+  background: var(--color-bg-secondary);
+}
+body.theme-cruxatec .hero-overlay {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 46%, rgba(8,16,28,0.42) 0%, rgba(8,16,28,0.18) 55%, transparent 78%),
+    linear-gradient(180deg, rgba(8,16,28,0.4) 0%, rgba(8,16,28,0.12) 30%, rgba(8,16,28,0.22) 68%, rgba(8,16,28,0.58) 100%);
+}
+body.theme-cruxatec .hero h1,
+body.theme-cruxatec .hero h1 .accent {
+  color: #FFFFFF;
+  -webkit-text-fill-color: currentColor;
+  background: none;
+  text-shadow: 0 2px 22px rgba(0,0,0,0.4);
+}
+body.theme-cruxatec .hero p.lede {
+  color: #FFFFFF;
+  opacity: 0.92;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+}
+
+/* Stats strip — lightweight, lives at the end of Our Work, not
+   its own section */
+body.theme-cruxatec .stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(28px, 6vw, 72px);
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid rgba(30,41,59,0.1);
+  text-align: center;
+}
+body.theme-cruxatec .stats-strip .stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  color: var(--color-logo-brand);
+}
+body.theme-cruxatec .stats-strip .stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-body);
+  opacity: 0.68;
+  letter-spacing: 0.01em;
+  margin-top: 4px;
+}
+
+/* Services — four simple blocks: bold header + description,
+   no boxed cards, sitting on the lavender panel */
+body.theme-cruxatec .services-blocks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-6) var(--sp-5);
+  max-width: 920px;
+  margin: 0 auto;
+}
+body.theme-cruxatec .service-block h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+  position: relative;
+  padding-left: 18px;
+}
+body.theme-cruxatec .service-block h3::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.4em;
+  width: 10px; height: 2px;
+  background: var(--color-accent-action);
+}
+body.theme-cruxatec .service-block p {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--color-text-body);
+  opacity: 0.75;
+}
+@media (max-width: 700px) {
+  body.theme-cruxatec .services-blocks { grid-template-columns: 1fr; text-align: center; }
+  body.theme-cruxatec .service-block h3 { padding-left: 0; }
+  body.theme-cruxatec .service-block h3::before { display: none; }
+}
+
+/* Cards / panels — lavender tint, never navy, never boxed hard */
+body.theme-cruxatec .cta-panel {
+  background: var(--color-bg-secondary);
+  border: none;
+}
+body.theme-cruxatec .problem-fig img,
+body.theme-cruxatec .approach-figs img { box-shadow: 0 16px 40px rgba(30,41,59,0.12); }
+
+/* Footer — lavender panel per spec, charcoal text, navy hover */
+body.theme-cruxatec footer {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-body);
+  border-top: none;
+}
+body.theme-cruxatec footer a { color: var(--color-text-body); }
+body.theme-cruxatec footer a:hover { color: var(--color-accent-action); }
+body.theme-cruxatec .footer-social a {
+  border-color: rgba(30,41,59,0.15);
+  color: var(--color-text-body);
+}
+body.theme-cruxatec .footer-social a:hover {
+  color: var(--color-accent-action);
+  border-color: var(--color-accent-action);
+  transform: translateY(-2px);
+}
+body.theme-cruxatec .footer-contact { border-top-color: rgba(30,41,59,0.12); }
+body.theme-cruxatec .footer-contact strong { color: var(--color-text-body); }
+body.theme-cruxatec .copyright { color: var(--color-text-body); opacity: 0.6; }
+
+/* No hard divider shapes between sections — color alternation
+   alone handles the transitions */
+body.theme-cruxatec .skyline-divider { display: none; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+:focus-visible {
+  outline: 2px solid var(--blue-bright);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--edge);
+}
+
+/* =========================================================
+   Eyebrow / mono labels — blueprint annotation style
+   ========================================================= */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 var(--sp-2);
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--blue);
+  display: block;
+}
+.section--dark .eyebrow { color: var(--blue-bright); }
+.eyebrow.is-center { justify-content: center; }
+.eyebrow.is-center::before,
+.eyebrow.is-center::after { content: ""; width: 22px; height: 1px; background: currentColor; opacity: 0.6; }
+
+/* =========================================================
+   Section rhythm — alternating ink / blueprint
+   ========================================================= */
+.section {
+  position: relative;
+  padding: clamp(48px, 7vw, 92px) 0;
+}
+.section--light { background: var(--paper); color: var(--text-dark); }
+.section--dark { background: var(--ink); color: var(--text-light); }
+.section--dark .text-soft { color: var(--text-light-soft); }
+.section--light .text-soft { color: var(--text-dark-soft); }
+
+/* Dimmed variant — same family as --dark but noticeably lighter/softer,
+   used where we want the dark tone without it dominating the page. */
+.section--dim { background: var(--ink-2); color: var(--text-light); }
+.section--dim .eyebrow { color: var(--blue-bright); }
+.section--dim .lede { color: var(--text-light-soft); }
+
+/* Compact vertical rhythm for smaller, denser sections */
+.section--compact { padding: clamp(36px, 5vw, 60px) 0; }
+
+/* Faint drafting grid on light sections */
+.section--light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.35;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 75%);
+}
+
+.section-head {
+  max-width: 760px;
+  margin: 0 auto var(--sp-5);
+  text-align: center;
+}
+.section-head h2 {
+  margin: 0;
+}
+.section-head p {
+  margin: var(--sp-2) auto 0;
+  max-width: 620px;
+  font-size: 1.05rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+}
+h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+p { margin: 0 0 1em; }
+.lede { font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--text-dark-soft); }
+.section--dark .lede { color: var(--text-light-soft); }
+
+/* Skyline divider — the repeated brand motif between sections */
+.skyline-divider {
+  width: 100%;
+  height: 46px;
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+.skyline-divider svg { width: 100%; height: 100%; display: block; }
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 28px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+  color: #0A1F35;
+}
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-outline {
+  border-color: var(--ink-line);
+  color: var(--text-light);
+}
+.section--light .btn-outline { border-color: var(--paper-line); color: var(--text-dark); }
+.btn-outline:hover { border-color: var(--blue-bright); color: var(--blue-bright); }
+.section--light .btn-outline:hover { color: var(--blue); border-color: var(--blue); }
+
+.btn-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   Nav
+   ========================================================= */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  background: transparent;
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+.nav.is-scrolled {
+  background: rgba(11, 27, 46, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  box-shadow: 0 1px 0 var(--ink-line);
+}
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+}
+.brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.nav-links {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: 0; padding: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light-soft);
+}
+.nav-links a:hover { color: var(--text-light); }
+.nav-actions { display: flex; align-items: center; gap: 18px; }
+.nav .btn-primary { padding: 12px 22px; font-size: 0.88rem; }
+.nav-toggle {
+  display: none;
+  background: none; border: 0;
+  width: 40px; height: 40px;
+  color: var(--text-light);
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+  content: "";
+  display: block;
+  width: 22px; height: 2px;
+  background: currentColor;
+  margin: 0 auto;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.nav-toggle span::before { position: absolute; top: -7px; }
+.nav-toggle span::after { position: absolute; top: 7px; }
+
+@media (max-width: 880px) {
+  .nav-links { position: fixed; inset: 64px 0 0 0; background: var(--ink); flex-direction: column; align-items: center; justify-content: center; gap: 30px; font-size: 1.2rem; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; }
+  body.nav-open .nav-links { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .nav-toggle { display: block; }
+  .nav-actions .btn-primary { display: none; }
+}
+
+/* =========================================================
+   Hero — full-bleed background video
+   ========================================================= */
+.hero {
+  position: relative;
+  background: var(--ink);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+.hero-video.is-active {
+  z-index: 1;
+  opacity: 1;
+}
+.hero-sound-toggle {
+  position: absolute;
+  z-index: 3;
+  right: 24px;
+  bottom: 28px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.5);
+  background: rgba(11,20,32,0.35);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.hero-sound-toggle:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.85); }
+.hero-sound-toggle svg { width: 20px; height: 20px; }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 65% 50% at 50% 46%, rgba(11,20,32,0.38) 0%, rgba(11,20,32,0.14) 55%, transparent 78%),
+    linear-gradient(180deg, rgba(11,20,32,0.35) 0%, rgba(11,20,32,0.08) 30%, rgba(11,20,32,0.18) 68%, rgba(11,20,32,0.62) 100%);
+  pointer-events: none;
+}
+.hero .container.hero-copy-wrap { position: relative; z-index: 2; width: 100%; }
+.hero-copy {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 40px;
+}
+.hero h1 {
+  font-size: clamp(2.3rem, 5.6vw, 4.1rem);
+  margin-bottom: 0.35em;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.hero h1.is-swapping { opacity: 0; transform: translateY(8px); }
+.hero h1 .accent {
+  background: linear-gradient(100deg, var(--blue-bright), var(--silver));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero .sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 0.6em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+.hero p.lede { max-width: 620px; margin-left: auto; margin-right: auto; text-shadow: 0 2px 14px rgba(0,0,0,0.45); }
+.hero .eyebrow { text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
+@media (max-width: 620px) {
+  .hero-copy { padding-top: 84px; }
+}
+
+/* =========================================================
+   Statement blocks (Problem / Why)
+   ========================================================= */
+.statement {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.statement h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+.statement .lede { max-width: 640px; margin: 22px auto 0; }
+
+/* =========================================================
+   Problem — compact, text + image side by side
+   ========================================================= */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--sp-6);
+  align-items: center;
+}
+.problem-fig img {
+  border-radius: 3px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/4;
+}
+@media (max-width: 880px) {
+  .problem-grid { grid-template-columns: 1fr; text-align: center; }
+  .problem-fig { order: -1; }
+}
+
+/* =========================================================
+   Approach — split, centered pair
+   ========================================================= */
+.approach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  align-items: center;
+}
+.approach-figs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.approach-figs img { border-radius: 3px; object-fit: cover; height: 100%; }
+.approach-figs .tall { grid-row: span 2; height: 100%; aspect-ratio: 3/4.4; }
+.approach-figs .short { aspect-ratio: 4/3; }
+@media (max-width: 880px) {
+  .approach-grid { grid-template-columns: 1fr; }
+  .approach-figs { order: -1; }
+}
+
+/* =========================================================
+   Services — compact three-column list
+   ========================================================= */
+.services-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 var(--sp-5);
+}
+.services-list li {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--ink-line);
+  font-size: 0.98rem;
+  color: var(--text-light-soft);
+  position: relative;
+  padding-left: 22px;
+}
+.services-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+@media (max-width: 940px) {
+  .services-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .services-list { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   Work gallery — staggered mosaic mixing interiors with real
+   on-site construction work, sized for more visual presence
+   ========================================================= */
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(150px, 1fr);
+  gap: var(--sp-3);
+  grid-template-areas:
+    "a a b c"
+    "a a d d"
+    "e f f g"
+    "e h h g";
+}
+.work-gallery > div {
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.work-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.work-gallery > div:hover img { transform: scale(1.06); }
+.work-gallery .g-a { grid-area: a; }
+.work-gallery .g-b { grid-area: b; }
+.work-gallery .g-c { grid-area: c; }
+.work-gallery .g-d { grid-area: d; }
+.work-gallery .g-e { grid-area: e; }
+.work-gallery .g-f { grid-area: f; }
+.work-gallery .g-g { grid-area: g; }
+.work-gallery .g-h { grid-area: h; }
+@media (max-width: 780px) {
+  .work-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(160px, 220px);
+    grid-template-areas:
+      "a a"
+      "a a"
+      "b c"
+      "d d"
+      "e f"
+      "g g"
+      "h h";
+  }
+}
+
+/* =========================================================
+   Why Cruxatec + Get In Touch — merged, side by side
+   ========================================================= */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  align-items: center;
+}
+.cta-panel {
+  background: var(--paper-2);
+  border: 1px solid var(--paper-line);
+  border-radius: 4px;
+  padding: clamp(28px, 3.4vw, 40px);
+  text-align: left;
+}
+.cta-panel .eyebrow { margin-bottom: 14px; }
+.cta-panel h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  margin: 0 0 14px;
+  line-height: 1.18;
+}
+@media (max-width: 880px) {
+  .cta-grid { grid-template-columns: 1fr; text-align: center; }
+  .cta-panel { text-align: left; }
+}
+
+/* =========================================================
+   Footer — brand/nav row + social + compact contact line + copyright
+   ========================================================= */
+footer {
+  background: var(--ink);
+  color: var(--text-light-soft);
+  padding: var(--sp-5) 0 var(--sp-4);
+  border-top: 1px solid var(--ink-line);
+}
+footer .container.footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+}
+footer .brand { font-size: 0.95rem; }
+.footer-links { display: flex; gap: 22px; list-style: none; padding: 0; margin: 0; }
+.footer-links a:hover { color: var(--text-light); }
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--ink-line);
+  border-radius: 50%;
+  color: var(--text-light-soft);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.footer-social a svg { width: 16px; height: 16px; }
+.footer-social a:hover {
+  color: var(--blue-bright);
+  border-color: var(--blue-bright);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--ink-line);
+}
+.footer-contact a { color: var(--text-light-soft); }
+.footer-contact a:hover { color: var(--blue-bright); }
+.footer-contact strong { color: var(--text-light); font-weight: 600; }
+
+.copyright { font-size: 0.78rem; opacity: 0.75; }
+
+@media (max-width: 620px) {
+  .footer-top { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; flex-wrap: wrap; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* =========================================================
+   Reveal-on-scroll (subtle, respects reduced motion)
+   NOTE: content is visible by default. Only hidden if the
+   "js" class (added by a blocking inline script in <head>)
+   is present, so a JS failure never blanks the page.
+   ========================================================= */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* =========================================================
+   About page — new luxury layout
+   ========================================================= */
+.about-lead {
+  padding-top: clamp(96px, 11vw, 120px);
+  padding-bottom: clamp(32px, 5vw, 52px);
+}
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--sp-6);
+  align-items: center;
+}
+.about-intro-grid h1 {
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+  margin-bottom: 0.4em;
+}
+.about-intro-grid .lede { margin-bottom: 0.85em; }
+.about-intro-grid .lede:last-of-type { margin-bottom: var(--sp-4); }
+
+.ceo-portrait-wrap img {
+  width: 100%;
+  border-radius: 3px;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  transition: transform 0.6s ease;
+}
+.ceo-portrait-wrap:hover img { transform: scale(1.02); }
+.ceo-caption {
+  margin: var(--sp-3) 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+.ceo-caption strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+.ceo-caption span {
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ceo-signoff {
+  margin: var(--sp-4) 0 0;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  opacity: 0.9;
+}
+body.theme-cruxatec .ceo-signoff { color: var(--color-accent-action); opacity: 0.75; }
+@media (max-width: 880px) {
+  .about-intro-grid { grid-template-columns: 1fr; text-align: center; }
+  .about-intro-grid .btn-row { justify-content: center !important; }
+  .ceo-portrait-wrap { max-width: 340px; margin: 0 auto; }
+  .ceo-caption { justify-content: center; }
+}
+
+/* Minimal top bar for the About page */
+.about-nav .nav-links { gap: 26px; }
+
+/* =========================================================
+   Portfolio page — placeholder gallery grid + centered CTA
+   ========================================================= */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+.portfolio-item {
+  aspect-ratio: 4/3;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  background: var(--paper-2);
+}
+.portfolio-item img,
+.portfolio-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.portfolio-item:hover img { transform: scale(1.05); }
+
+/* Placeholder variant — kept for future empty tiles */
+.portfolio-item.is-placeholder {
+  border: 1.5px dashed var(--paper-line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-dark-soft);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.portfolio-item.is-placeholder span {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--paper-line);
+  transition: color 0.2s ease;
+}
+.portfolio-item.is-placeholder:hover { border-color: var(--blue); color: var(--blue); }
+.portfolio-item.is-placeholder:hover span { color: var(--blue); }
+@media (max-width: 880px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+.portfolio-cta {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+.portfolio-cta .eyebrow.is-center { margin-bottom: 10px; }
+.portfolio-cta h2 { margin-bottom: 10px; }
+.portfolio-cta .lede { margin-bottom: var(--sp-4); }
