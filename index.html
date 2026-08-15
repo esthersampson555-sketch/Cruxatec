@@ -1,48 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cruxatec | Design. Consult. Build.</title>
-    <!-- 1. The Stylesheet link fixed here -->
-    <link rel="stylesheet" href="style.css">
+<script>
+  document.documentElement.classList.add('js');
+  // Failsafe: if main.js never loads/runs for any reason (blocked,
+  // 404, offline, etc.), don't leave the page permanently blank.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var els = document.querySelectorAll('.reveal:not(.is-visible)');
+      for (var i = 0; i < els.length; i++) els[i].classList.add('is-visible');
+    }, 2500);
+  });
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cruxatec | Design. Consult. Build.</title>
+  <link rel="stylesheet" href="style.css">
+
+<meta name="description" content="Cruxatec is an architectural design, consultancy and execution practice working across Enugu, Anambra, Abia and Imo States. Design that works before, during and after construction.">
+<link rel="icon" href="assets/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="theme-cruxatec">
 
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/img/logo.jpg" alt="Cruxatec"> Cruxatec</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://calendly.com/cruxndidi/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
 <section class="hero" id="heroVideo">
-  <!-- 2. Corrected Background Videos linking straight to assets -->
-  <video class="hero-video is-active" id="heroVideoA" autoplay loop muted playsinline preload="auto" poster="assets/img/hero-07-townhouses-palms.jpg">
-    <source src="assets/hero-clip-1.mp4" type="video/mp4">
+  <video class="hero-video is-active" id="heroVideoA" muted playsinline preload="auto" poster="assets/img/hero-07-townhouses-palms.jpg" aria-hidden="true">
+    <source src="assets/video/hero-clip-1.mp4" type="video/mp4">
   </video>
-
-  <video class="hero-video" id="heroVideoB" autoplay loop muted playsinline preload="auto" aria-hidden="true">
-    <source src="assets/hero-clip-2.mp4" type="video/mp4">
+  <video class="hero-video" id="heroVideoB" muted playsinline preload="auto" aria-hidden="true">
+    <source src="assets/video/hero-clip-2.mp4" type="video/mp4">
   </video>
-
-  <!-- Sound Toggle Control -->
   <button class="hero-sound-toggle" id="heroSoundToggle" type="button" aria-pressed="false" aria-label="Turn on video sound">
-    <svg class="icon-muted" viewBox="0 0 24 24" fill="none"><path d="M4 9V15H8L13 20V4L8 9H4Z" fill="currentColor"/><path d="M16 8L21 16M21 8L16 16" stroke="currentColor" stroke-width="2"/></svg>
+    <svg class="icon-muted" viewBox="0 0 24 24" fill="none"><path d="M4 9V15H8L13 20V4L8 9H4Z" fill="currentColor"/><path d="M16 8L21 16M21 8L16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" hidden><path d="M4 9V15H8L13 20V4L8 9H4Z" fill="currentColor"/><path d="M16.5 8.5C17.5 9.5 18 10.7 18 12C18 13.3 17.5 14.5 16.5 15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6C20.8 7.6 21.8 9.7 21.8 12C21.8 14.3 20.8 16.4 19 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
   </button>
-  
   <div class="hero-overlay" aria-hidden="true"></div>
 
-  <!-- 3. Your Original Hero Text Section completely safe and restored here -->
-  <div class="hero-content text-center">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <h1 class="hero-title text-white mb-4">Design. Consult. Build.</h1>
-          <p class="hero-lead text-white-50 mb-5">We craft stunning architectural spaces and durable engineering marvels tailored exactly to your vision.</p>
-          <div class="hero-actions">
-            <a href="portfolio.html" class="btn btn-primary btn-lg me-3">View Our Portfolio</a>
-            <a href="about.html" class="btn btn-outline-light btn-lg">About Us</a>
-          </div>
+  <div class="container hero-copy-wrap">
+    <div class="hero-copy reveal">
+      <h1 id="heroHeadline"><span class="accent">Bring Your Dream Space To Life</span></h1>
+      <p class="lede">We help you turn your vision into a space you can be proud of, with practical architectural guidance from concept through construction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR WORK ============ -->
+<section class="section section--light" id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow is-center">Our Work</p>
+      <h2>See What Good Architecture Looks Like When Design Meets Reality.</h2>
+      <p class="lede">From homes and commercial spaces to hospitality, institutional, religious, renovation, and specialised projects, our work is shaped around how each space needs to function, feel, and perform.</p>
+      <div class="btn-row" style="margin-top:32px;">
+        <a href="portfolio.html" class="btn btn-outline">See Our Portfolio</a>
+      </div>
+    </div>
+
+    <div class="work-gallery reveal">
+      <div class="g-a"><img src="assets/img/hero-01-townhouses.jpg" alt="Modern townhouse exterior with palm landscaping" loading="lazy"></div>
+      <div class="g-b"><img src="assets/img/interior-03-living.jpg" alt="Elegant living room interior design" loading="lazy"></div>
+      <div class="g-c"><img src="assets/img/hero-06-mansion-collage.jpg" alt="Grand mansion elevation design" loading="lazy"></div>
+      <div class="g-d"><img src="assets/img/hero-04-commercial.jpg" alt="Modern commercial building with glass facade" loading="lazy"></div>
+      <div class="g-e"><img src="assets/img/interior-11-dining.jpg" alt="Dining and hallway interior with pendant lighting" loading="lazy"></div>
+      <div class="g-f"><img src="assets/img/interior-01-gallery-hall.jpg" alt="Gallery hallway interior with artwork" loading="lazy"></div>
+      <div class="g-g"><img src="assets/img/hero-03-duplex.jpg" alt="Luxury duplex residence exterior elevation" loading="lazy"></div>
+      <div class="g-h"><img src="assets/img/interior-12-living-plant.jpg" alt="Warm modern living room with feature plant" loading="lazy"></div>
+    </div>
+
+    <div class="stats-strip reveal">
+      <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Completed Projects</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">States Covered</span></div>
+      <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Years Combined Experience</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section section--dark" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow is-center">Services</p>
+      <h2>We Offer</h2>
+    </div>
+
+    <div class="services-blocks reveal">
+      <div class="service-block">
+        <h3>Architecture</h3>
+        <p>Concept through detailed design for residential, commercial and hospitality spaces, visualised before they're built.</p>
+      </div>
+      <div class="service-block">
+        <h3>Interior Design</h3>
+        <p>Space planning and interior layout that make better use of how a room is actually lived in.</p>
+      </div>
+      <div class="service-block">
+        <h3>Execution &amp; Contracting</h3>
+        <p>Site supervision, project coordination and renovation work that keeps construction true to the design.</p>
+      </div>
+      <div class="service-block">
+        <h3>Consultancy</h3>
+        <p>Construction documentation and practical guidance when technical decisions or design changes arise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM (no title label, per instruction) ============ -->
+<section class="section section--dim section--compact">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="reveal">
+        <h2>A Good Design Shouldn't Create Problems When Construction Begins.</h2>
+        <p class="lede">You shouldn't have to choose between a building that looks good and one that actually works. Poor planning can lead to wasted space, difficult construction, costly changes, and a finished building that doesn't match what you originally envisioned.</p>
+        <p class="lede">That's why we consider more than the appearance of a project. We think about <strong>how people will use it, how it will be built, and what it needs to achieve.</strong></p>
+      </div>
+      <div class="problem-fig reveal">
+        <img src="assets/img/problem-architect.png" alt="Architect reviewing detailed building plans at a drafting table, with a construction crane visible through the window" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR APPROACH ============ -->
+<section class="section section--light">
+  <div class="container">
+    <div class="approach-grid">
+      <div class="reveal">
+        <p class="eyebrow">Our Approach</p>
+        <h2>We Design With The Finished Building In Mind.</h2>
+        <p class="lede">Every project starts with understanding what you need, not simply putting a design on paper. We consider your requirements, site, function, budget, materials, construction realities, and the experience you want the finished space to provide.</p>
+        <p class="lede">The result is architecture designed to make sense <strong>before, during, and after construction.</strong></p>
+      </div>
+      <div class="approach-figs reveal">
+        <img class="tall" src="assets/img/hero-05-bungalow-dusk.jpg" alt="Finished rendered design of a residence" loading="lazy">
+        <img class="short" src="assets/img/site-scaffold-build.jpg" alt="Same class of residence under real construction" loading="lazy">
+        <img class="short" src="assets/img/site-block-mud.jpg" alt="Blockwork and foundation on an active site" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CRUXATEC + GET IN TOUCH ============ -->
+<section class="section section--light" id="contact">
+  <div class="container">
+    <div class="cta-grid">
+      <div class="reveal">
+        <p class="eyebrow">Why Cruxatec</p>
+        <h2>Because The Drawing Is Only The Beginning.</h2>
+        <p class="lede">You want a team you can trust with your project, one that understands your vision, communicates clearly, and pays attention to the details that matter.</p>
+        <p class="lede">Our experience across <strong>design, construction, supervision, and project coordination</strong> means every drawing accounts for real construction requirements. So you get the confidence of working with people who deliver what was agreed, reliably.</p>
+      </div>
+
+      <div class="cta-panel reveal">
+        <p class="eyebrow">Get In Touch</p>
+        <h3>Have A Project In Mind? Let's Talk About It.</h3>
+        <p class="lede">Whether you're planning a new building, transforming an existing space, or need professional guidance during construction, tell us what you're working on.</p>
+        <div class="btn-row" style="justify-content:flex-start;">
+          <a href="https://calendly.com/cruxndidi/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Call</a>
+          <a href="mailto:cruxndidi@gmail.com" class="btn btn-outline">Let's Talk About Your Next Project</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-top">
+      <a href="index.html" class="brand"><img src="assets/img/logo.jpg" alt="Cruxatec"> Cruxatec</a>
+      <ul class="footer-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/1EhqqeWMND/" target="_blank" rel="noopener" aria-label="Cruxatec on Facebook">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M14 9V6.5C14 5.67 14.67 5 15.5 5H17V2H14.5C12.01 2 10 4.01 10 6.5V9H7V12H10V22H14V12H17L18 9H14Z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/crux-nwachukwu" target="_blank" rel="noopener" aria-label="Cruxatec on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6C1.11 6 0 4.88 0 3.5C0 2.12 1.11 1 2.49 1C3.87 1 4.98 2.12 4.98 3.5ZM0.24 8H4.74V23H0.24V8ZM8.24 8H12.54V10.06H12.6C13.2 8.92 14.66 7.72 16.84 7.72C21.4 7.72 22.24 10.7 22.24 14.58V23H17.74V15.46C17.74 13.76 17.71 11.58 15.38 11.58C13.02 11.58 12.66 13.42 12.66 15.34V23H8.24V8Z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.instagram.com/cruxnwachukwu" target="_blank" rel="noopener" aria-label="Cruxatec on Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-contact">
+        <span><strong>WhatsApp:</strong> <a href="https://wa.me/2348108315976">0810 831 5976</a> · <a href="https://wa.me/2347018493355">0701 849 3355</a> · <a href="https://wa.me/2347044934680">0704 493 4680</a></span>
+        <span><strong>Email:</strong> <a href="mailto:cruxndidi@gmail.com">cruxndidi@gmail.com</a> · <a href="mailto:tobe-chukwunwachukwu32@gmail.com">tobe-chukwunwachukwu32@gmail.com</a></span>
+        <span><strong>Studio:</strong> 44 Owerri Road, Asata, Enugu.</span>
+      </div>
+      <span class="copyright">&copy; 2026 Cruxatec. We design. We consult. We build. You thrive.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
 
